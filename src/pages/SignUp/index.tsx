@@ -26,10 +26,9 @@ const SignUp: React.FC = () => {
           .required('E-mail obrigatório')
           .email('Digite um email válido'),
         password: Yup.string().min(6, 'No mínimo 6 digitos'),
-        confirmPassword: Yup.string().oneOf(
-          [Yup.ref('password'), undefined],
-          'Senha não são iguais',
-        ),
+        confirmPassword: Yup.string()
+          .oneOf([Yup.ref('password'), undefined], 'Senhas não são iguais')
+          .required('Confirmação obrigatória'),
       });
 
       await schema.validate(data, {
@@ -37,7 +36,6 @@ const SignUp: React.FC = () => {
       });
     } catch (error) {
       const errors = getValidationErros(error);
-
       formRef.current?.setErrors(errors);
     }
   }, []);
