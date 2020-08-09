@@ -9,7 +9,6 @@ import { IconBaseProps } from 'react-icons';
 import { useField } from '@unform/core';
 
 import { Container } from './styles';
-import { transpileModule } from 'typescript';
 
 interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
@@ -50,6 +49,7 @@ const Input: React.FC<IInputProps> = ({ name, icon: Icon, ...rest }) => {
         ref={inputRef}
         {...rest}
       />
+      {error}
     </Container>
   );
 };
