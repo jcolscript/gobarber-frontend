@@ -19,8 +19,8 @@ export const Content = styled.div`
 
   form {
     margin: 80px 0;
-    max-width: 340px;
     text-align: center;
+    width: 340px;
 
     h1 {
       margin-bottom: 24px;
