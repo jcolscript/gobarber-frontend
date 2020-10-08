@@ -48,7 +48,11 @@ const SignIn: React.FC = () => {
           const errors = getValidationErros(error);
           formRef.current?.setErrors(errors);
         }
-        addToast();
+        addToast({
+          type: 'error',
+          title: 'Erro na autenticação',
+          description: 'Credenciais invalidas!',
+        });
       }
     },
     [signIn, addToast],
