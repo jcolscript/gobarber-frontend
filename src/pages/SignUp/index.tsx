@@ -12,7 +12,7 @@ import logo from '../../assets/logo.svg';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 
-import { Container, Content, Background } from './styles';
+import { Container, Content, AnimationContainer, Background } from './styles';
 
 const SignUp: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
@@ -45,33 +45,40 @@ const SignUp: React.FC = () => {
     <Container>
       <Background />
       <Content>
-        <img src={logo} alt="GoBarber" />
+        <AnimationContainer>
+          <img src={logo} alt="GoBarber" />
 
-        <Form ref={formRef} onSubmit={handleSubmit}>
-          <h1>Criar sua Conta do GoBarber</h1>
+          <Form ref={formRef} onSubmit={handleSubmit}>
+            <h1>Criar sua Conta do GoBarber</h1>
 
-          <Input name="name" icon={FiUser} type="text" placeholder="Nome" />
-          <Input name="email" icon={FiMail} type="text" placeholder="E-mail" />
-          <Input
-            name="password"
-            icon={FiLock}
-            type="password"
-            placeholder="Senha"
-          />
-          <Input
-            name="confirmPassword"
-            icon={FiLock}
-            type="password"
-            placeholder="Confirmar senha"
-          />
+            <Input name="name" icon={FiUser} type="text" placeholder="Nome" />
+            <Input
+              name="email"
+              icon={FiMail}
+              type="text"
+              placeholder="E-mail"
+            />
+            <Input
+              name="password"
+              icon={FiLock}
+              type="password"
+              placeholder="Senha"
+            />
+            <Input
+              name="confirmPassword"
+              icon={FiLock}
+              type="password"
+              placeholder="Confirmar senha"
+            />
 
-          <Button type="submit">Cadastrar</Button>
-        </Form>
+            <Button type="submit">Cadastrar</Button>
+          </Form>
 
-        <Link to="/">
-          <FiArrowLeft />
-          Faça login em vez disso
-        </Link>
+          <Link to="/">
+            <FiArrowLeft />
+            Faça login em vez disso
+          </Link>
+        </AnimationContainer>
       </Content>
     </Container>
   );
