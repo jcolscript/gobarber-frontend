@@ -7,7 +7,7 @@ import Toast from './Toast';
 
 interface ToastMessage {
   id: string;
-  type?: 'sucess' | 'error' | 'info';
+  type?: 'success' | 'error' | 'info';
   title: string;
   description?: string;
 }

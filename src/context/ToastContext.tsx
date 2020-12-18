@@ -1,11 +1,11 @@
 import React, { createContext, useContext, useCallback, useState } from 'react';
-import { uuid } from 'uuidv4';
+import {v4 as uuid} from 'uuid';
 
 import ToastContainer from '../components/ToastContainer';
 
 interface ToastMessage {
   id: string;
-  type?: 'sucess' | 'error' | 'info';
+  type?: 'success' | 'error' | 'info';
   title: string;
   description?: string;
 }

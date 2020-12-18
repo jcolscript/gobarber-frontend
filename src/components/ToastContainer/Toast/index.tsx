@@ -12,7 +12,7 @@ import { Container } from './styles';
 
 interface ToastMessage {
   id: string;
-  type?: 'sucess' | 'error' | 'info';
+  type?: 'success' | 'error' | 'info';
   title: string;
   description?: string;
 }
@@ -25,7 +25,7 @@ interface ToastProps {
 const icons = {
   info: <FiInfo size={24} />,
   error: <FiAlertCircle size={24} />,
-  sucess: <FiCheckCircle size={24} />,
+  success: <FiCheckCircle size={24} />,
 };
 
 const Toast: React.FC<ToastProps> = ({ message, style }) => {
