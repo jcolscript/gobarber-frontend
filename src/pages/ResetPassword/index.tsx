@@ -50,17 +50,17 @@ const ResetPassword: React.FC = () => {
 
         const token = getQueryString(location.search, 'token');
 
-        if(!token) {
+        if (!token) {
           throw new Error();
         }
 
         await client.post('/password/reset', {
           password: data.password,
           password_confirmation: data.confirmPassword,
-          token
-        })
+          token,
+        });
 
-        history.push('/')
+        history.push('/');
       } catch (error) {
         if (error instanceof Yup.ValidationError) {
           const errors = getValidationErros(error);
