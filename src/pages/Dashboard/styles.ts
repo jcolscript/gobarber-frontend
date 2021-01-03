@@ -211,6 +211,8 @@ export const Appointment = styled.div`
 
 export const Calendar = styled.aside`
   width: 380px;
+  position: sticky;
+  top: 0;
 
   .DayPicker {
     border-radius: 0.6rem;
