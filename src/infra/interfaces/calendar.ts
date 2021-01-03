@@ -1,10 +1,10 @@
 import { DayModifiers } from 'react-day-picker';
 
-export interface CalendarModifiers extends DayModifiers {
+export interface ICalendarModifiers extends DayModifiers {
   available: boolean;
 }
 
-export interface MonthAvailabilityItem {
+export interface IMonthAvailabilityItem {
   day: number;
   available: boolean;
 }
