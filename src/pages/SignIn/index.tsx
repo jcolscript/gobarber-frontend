@@ -5,8 +5,8 @@ import { FormHandles } from '@unform/core';
 import * as Yup from 'yup';
 import { Link, useHistory } from 'react-router-dom';
 
-import { useAuth } from '../../context/AuthContext';
-import { useToast } from '../../context/ToastContext';
+import { useAuth } from '../../infra/store/AuthContext';
+import { useToast } from '../../infra/store/ToastContext';
 import { getValidationErros } from '../../utils/form';
 
 import logo from '../../assets/logo.svg';
@@ -46,7 +46,7 @@ const SignIn: React.FC = () => {
 
         await signIn({ email: data.email, password: data.password });
 
-        history.push('/dashboard')
+        history.push('/dashboard');
       } catch (error) {
         if (error instanceof Yup.ValidationError) {
           const errors = getValidationErros(error);

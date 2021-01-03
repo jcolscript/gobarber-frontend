@@ -5,7 +5,7 @@ import { FormHandles } from '@unform/core';
 import * as Yup from 'yup';
 import { Link, useHistory } from 'react-router-dom';
 
-import { useToast } from '../../context/ToastContext';
+import { useToast } from '../../infra/store/ToastContext';
 
 import { getValidationErros } from '../../utils/form';
 
@@ -24,50 +24,53 @@ const SignUp: React.FC = () => {
   const { addToast } = useToast();
   const history = useHistory();
 
-  const handleSubmit = useCallback(async (data: any) => {
-    try {
-      formRef.current?.setErrors({});
+  const handleSubmit = useCallback(
+    async (data: any) => {
+      try {
+        formRef.current?.setErrors({});
 
-      const schema = Yup.object().shape({
-        name: Yup.string().required('Nome obrigatório'),
-        email: Yup.string()
-          .required('E-mail obrigatório')
-          .email('Digite um email válido'),
-        password: Yup.string().min(6, 'No mínimo 6 digitos'),
-        confirmPassword: Yup.string()
-          .oneOf([Yup.ref('password'), undefined], 'Senhas não são iguais')
-          .required('Confirmação obrigatória'),
-      });
+        const schema = Yup.object().shape({
+          name: Yup.string().required('Nome obrigatório'),
+          email: Yup.string()
+            .required('E-mail obrigatório')
+            .email('Digite um email válido'),
+          password: Yup.string().min(6, 'No mínimo 6 digitos'),
+          confirmPassword: Yup.string()
+            .oneOf([Yup.ref('password'), undefined], 'Senhas não são iguais')
+            .required('Confirmação obrigatória'),
+        });
 
-      await schema.validate(data, {
-        abortEarly: false,
-      });
+        await schema.validate(data, {
+          abortEarly: false,
+        });
 
-      delete data.confirmPassword;
+        delete data.confirmPassword;
 
-      await client.post('/users', data);
+        await client.post('/users', data);
 
-      history.push('/');
+        history.push('/');
 
-      addToast({
-        type: 'success',
-        title: 'Cadastro realizado!',
-        description: 'Você já pode fazer seu logon no GoBarber!',
-      });
-    } catch (error) {
-      if (error instanceof Yup.ValidationError) {
-        const errors = getValidationErros(error);
-        formRef.current?.setErrors(errors);
-        return;
+        addToast({
+          type: 'success',
+          title: 'Cadastro realizado!',
+          description: 'Você já pode fazer seu logon no GoBarber!',
+        });
+      } catch (error) {
+        if (error instanceof Yup.ValidationError) {
+          const errors = getValidationErros(error);
+          formRef.current?.setErrors(errors);
+          return;
+        }
+
+        addToast({
+          type: 'error',
+          title: 'Erro no cadastro',
+          description: 'Ocorreu um erro ao fazer cadastro, tente novamente.',
+        });
       }
-
-      addToast({
-        type: 'error',
-        title: 'Erro no cadastro',
-        description: 'Ocorreu um erro ao fazer cadastro, tente novamente.',
-      });
-    }
-  }, [addToast, history]);
+    },
+    [addToast, history],
+  );
 
   return (
     <Container>

@@ -5,7 +5,7 @@ import { FormHandles } from '@unform/core';
 import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
 
-import { useToast } from '../../context/ToastContext';
+import { useToast } from '../../infra/store/ToastContext';
 import { getValidationErros } from '../../utils/form';
 
 import logo from '../../assets/logo.svg';
@@ -46,14 +46,14 @@ const ForgotPassword: React.FC = () => {
 
         await client.post('/password/forgot', {
           email: data.email,
-        })
+        });
 
         addToast({
-          type: "success",
-          title: "E-mail de recuperação enviado",
-          description: "Enviamos um e-mail para confirmar a recuperação de senha, cheque sua caixa de entrada"
-        })
-
+          type: 'success',
+          title: 'E-mail de recuperação enviado',
+          description:
+            'Enviamos um e-mail para confirmar a recuperação de senha, cheque sua caixa de entrada',
+        });
       } catch (error) {
         if (error instanceof Yup.ValidationError) {
           const errors = getValidationErros(error);
@@ -63,7 +63,8 @@ const ForgotPassword: React.FC = () => {
         addToast({
           type: 'error',
           title: 'Erro na recuperação de senha',
-          description: 'Ocorreu um erro ao tentar realizar a recuperação de senha, tente novamente!',
+          description:
+            'Ocorreu um erro ao tentar realizar a recuperação de senha, tente novamente!',
         });
       } finally {
         setLoading(false);
@@ -87,7 +88,9 @@ const ForgotPassword: React.FC = () => {
               type="text"
               placeholder="E-mail"
             />
-            <Button loading={loading} type="submit">Recuperar</Button>
+            <Button loading={loading} type="submit">
+              Recuperar
+            </Button>
           </Form>
 
           <Link to="/">

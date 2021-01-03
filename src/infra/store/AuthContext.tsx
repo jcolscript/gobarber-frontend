@@ -1,7 +1,7 @@
 import React, { createContext, useCallback, useState, useContext } from 'react';
 
-import client from '../infra/services/client';
-import { IUser } from '../infra/interfaces/user';
+import client from '../services/client';
+import { IUser } from '../interfaces/user';
 
 interface AuthState {
   token: string;

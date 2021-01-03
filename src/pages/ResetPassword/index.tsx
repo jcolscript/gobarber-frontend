@@ -5,7 +5,7 @@ import { FormHandles } from '@unform/core';
 import * as Yup from 'yup';
 import { useHistory, useLocation } from 'react-router-dom';
 
-import { useToast } from '../../context/ToastContext';
+import { useToast } from '../../infra/store/ToastContext';
 import { getValidationErros } from '../../utils/form';
 
 import logo from '../../assets/logo.svg';
