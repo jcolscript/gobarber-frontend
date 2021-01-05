@@ -17,6 +17,7 @@ interface IAuthContext {
   user?: IUser;
   signIn(credentials: SignInCredentials): Promise<void>;
   signOut(): void;
+  updateUser(user: IUser): void;
 }
 
 const AuthContext = createContext<IAuthContext>({} as IAuthContext);
@@ -58,12 +59,25 @@ export const AuthProvider: React.FC = ({ children }) => {
     setData({} as AuthState);
   }, []);
 
+  const updateUser = useCallback(
+    (user: IUser) => {
+      localStorage.setItem('@Gobarber:user', JSON.stringify(user));
+
+      setData({
+        token: data.token,
+        user,
+      });
+    },
+    [data],
+  );
+
   return (
     <AuthContext.Provider
       value={{
         user: data.user,
         signIn,
         signOut,
+        updateUser,
       }}
     >
       {children}
