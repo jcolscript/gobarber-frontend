@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { isToday, format, parseISO, isAfter } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
 import { FiClock, FiPower } from 'react-icons/fi';
@@ -114,9 +115,9 @@ const Dashboard: React.FC = () => {
   }, [appointments]);
 
   const nextAppointment = useMemo(() => {
-    return appointments.find(appointment => {
-      isAfter(parseISO(appointment.date), new Date());
-    });
+    return appointments.find(appointment =>
+      isAfter(parseISO(appointment.date), new Date()),
+    );
   }, [appointments]);
 
   return (
@@ -131,7 +132,9 @@ const Dashboard: React.FC = () => {
             />
             <div>
               <span>Bem vindo</span>
-              <strong>{user?.name}</strong>
+              <Link to="/profile">
+                <strong>{user?.name}</strong>
+              </Link>
             </div>
           </Profile>
           <button type="button" onClick={signOut}>
