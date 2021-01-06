@@ -7,7 +7,7 @@ import { Link, useHistory } from 'react-router-dom';
 
 import { useAuth } from '../../infra/store/AuthContext';
 import { useToast } from '../../infra/store/ToastContext';
-import { getValidationErros } from '../../utils/form';
+import { getValidationErros } from '../../infra/utils/form';
 
 import logo from '../../assets/logo.svg';
 

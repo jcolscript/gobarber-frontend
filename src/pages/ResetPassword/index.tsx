@@ -6,7 +6,7 @@ import * as Yup from 'yup';
 import { useHistory, useLocation } from 'react-router-dom';
 
 import { useToast } from '../../infra/store/ToastContext';
-import { getValidationErros } from '../../utils/form';
+import { getValidationErros } from '../../infra/utils/form';
 
 import logo from '../../assets/logo.svg';
 
@@ -17,7 +17,7 @@ import { Container, Content, AnimationContainer, Background } from './styles';
 
 import client from '../../infra/services/client';
 
-import { getQueryString } from '../../utils/strings';
+import { getQueryString } from '../../infra/utils/strings';
 
 interface ResetPassowrdFormData {
   password: string;

@@ -7,7 +7,7 @@ import { Link, useHistory } from 'react-router-dom';
 
 import { useToast } from '../../infra/store/ToastContext';
 
-import { getValidationErros } from '../../utils/form';
+import { getValidationErros } from '../../infra/utils/form';
 
 import Input from '../../components/Input';
 import Button from '../../components/Button';
