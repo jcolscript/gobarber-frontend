@@ -22,7 +22,7 @@ import {
 import logoImg from '../../assets/logo.svg';
 import defaultAvatar from '../../assets/default-avatar.png';
 
-import { useAuth } from '../../infra/store/AuthContext';
+import { useAuth } from '../../infra/hooks/auth';
 import { IMonthAvailabilityItem } from '../../infra/interfaces/calendar';
 import { IAppointment } from '../../infra/interfaces/appointment';
 import { months, weekDaysShort } from '../../infra/utils/date';

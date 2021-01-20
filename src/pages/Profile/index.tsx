@@ -5,7 +5,7 @@ import { FormHandles } from '@unform/core';
 import * as Yup from 'yup';
 import { Link, useHistory } from 'react-router-dom';
 
-import { useToast } from '../../infra/store/ToastContext';
+import { useToast } from '../../infra/hooks/toast';
 
 import { getValidationErros } from '../../infra/utils/form';
 
@@ -15,7 +15,7 @@ import Button from '../../components/Button';
 import { Container, Content, AvatarInput } from './styles';
 
 import client from '../../infra/services/client';
-import { useAuth } from '../../infra/store/AuthContext';
+import { useAuth } from '../../infra/hooks/auth';
 
 import defaultAvatar from '../../assets/default-avatar.png';
 

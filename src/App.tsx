@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-import AppProvider from './infra/store';
+import AppProvider from './infra/hooks';
 
 import GlobalStyle from './styles/global';
 

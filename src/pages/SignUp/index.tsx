@@ -5,7 +5,7 @@ import { FormHandles } from '@unform/core';
 import * as Yup from 'yup';
 import { Link, useHistory } from 'react-router-dom';
 
-import { useToast } from '../../infra/store/ToastContext';
+import { useToast } from '../../infra/hooks/toast';
 
 import { getValidationErros } from '../../infra/utils/form';
 

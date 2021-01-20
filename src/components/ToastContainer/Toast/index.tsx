@@ -6,7 +6,7 @@ import {
   FiInfo,
 } from 'react-icons/fi';
 
-import { useToast } from '../../../infra/store/ToastContext';
+import { useToast } from '../../../infra/hooks/toast';
 
 import { Container } from './styles';
 

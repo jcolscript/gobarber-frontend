@@ -15,7 +15,7 @@ jest.mock('react-router-dom', () => {
   };
 });
 
-jest.mock('../../infra/store/AuthContext', () => {
+jest.mock('../../infra/hooks/auth', () => {
   return {
     useAuth: () => ({
       signIn: mockedSignIn,
@@ -23,7 +23,7 @@ jest.mock('../../infra/store/AuthContext', () => {
   };
 });
 
-jest.mock('../../infra/store/ToastContext', () => {
+jest.mock('../../infra/hooks/toast', () => {
   return {
     useToast: () => ({
       addToast: mockedAddToast,
